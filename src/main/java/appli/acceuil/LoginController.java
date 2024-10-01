@@ -33,10 +33,10 @@ public class LoginController {
     @FXML
     void OnClickConnexion(ActionEvent event) {
         if (Objects.equals(this.email.getText(), "") || Objects.equals(this.Mdp.getText(), "")) {
-            System.out.println("test");
+
             this.erreur.setText("Erreur");
         }else{
-            System.out.println("test2");
+
             StartApplication.changeScene("acceuil/page-acceuil");
 
         }
