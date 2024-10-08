@@ -4,7 +4,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database {
-    private String serveur = "localhost";
+    private String serveur = "localhost:3306";
 
     private String nomDeLaBase = "intro_javafx";
 

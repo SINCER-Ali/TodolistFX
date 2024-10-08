@@ -58,4 +58,12 @@ public class UtilisateurControlleur {
                 ", mdp='" + mdp + '\'' +
                 '}';
     }
+
+    public UtilisateurControlleur(int idUser, String nom, String prenom, String email, String mdp) {
+        this.idUser = idUser;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.mdp = mdp;
+    }
 }

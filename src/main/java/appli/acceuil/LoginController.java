@@ -7,7 +7,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import model.UtilisateurControlleur;
+import model.repository.UtilisateurRepository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class LoginController {
@@ -31,20 +35,23 @@ public class LoginController {
     private Button motdepasseoublie;
 
     @FXML
-    void OnClickConnexion(ActionEvent event) {
-        if (Objects.equals(this.email.getText(), "") || Objects.equals(this.Mdp.getText(), "")) {
+    void OnClickConnexion(ActionEvent event) throws SQLException {
 
-            this.erreur.setText("Erreur");
-        }else{
+        UtilisateurRepository utilisateurRepository = new UtilisateurRepository();
+        ResultSet data = utilisateurRepository.connection(this.email.getText(), this.Mdp.getText());
+        if (data.next()) {
+            UtilisateurControlleur userControlleur = new UtilisateurControlleur(data.getInt(1),data.getString(2),data.getString(3),data.getString(4),data.getString(5));
 
-            StartApplication.changeScene("acceuil/page-acceuil");
-
+            StartApplication.changeScene("acceuil/AccueilView");
+        }else {
+            StartApplication.changeScene("acceuil/loginView");
         }
+
     }
 
     @FXML
     void OnClickInscription(ActionEvent event) {
-        StartApplication.changeScene("accueil/inscriptionView");
+        StartApplication.changeScene("acceuil/inscriptionView");
     }
 
     @FXML
