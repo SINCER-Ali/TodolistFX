@@ -1,6 +1,6 @@
-package model;
+package model.Entity;
 
-public class UtilisateurControlleur {
+public class Utilisateur {
     private int idUser;
     private String nom;
     private String prenom;
@@ -59,7 +59,7 @@ public class UtilisateurControlleur {
                 '}';
     }
 
-    public UtilisateurControlleur(int idUser, String nom, String prenom, String email, String mdp) {
+    public Utilisateur(int idUser, String nom, String prenom, String email, String mdp) {
         this.idUser = idUser;
         this.nom = nom;
         this.prenom = prenom;

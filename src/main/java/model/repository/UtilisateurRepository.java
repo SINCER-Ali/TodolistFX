@@ -12,9 +12,8 @@ public class UtilisateurRepository {
     }
     public ResultSet connection(String email,String mdp) throws SQLException {
         Database db = new Database();
-        PreparedStatement requetePrepare = db.getConnection().prepareStatement("SELECT * FROM Utilisateur WHERE email = ? and mot_de_passe = ?");
+        PreparedStatement requetePrepare = db.getConnection().prepareStatement("SELECT * FROM Utilisateur WHERE email = ?");
         requetePrepare.setString(1, email);
-        requetePrepare.setString(2, mdp);
         ResultSet resultat = requetePrepare.executeQuery();
         return resultat;
     }

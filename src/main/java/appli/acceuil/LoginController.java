@@ -7,12 +7,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import model.UtilisateurControlleur;
+import model.Entity.Utilisateur;
 import model.repository.UtilisateurRepository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Objects;
 
 public class LoginController {
 
@@ -40,7 +39,7 @@ public class LoginController {
         UtilisateurRepository utilisateurRepository = new UtilisateurRepository();
         ResultSet data = utilisateurRepository.connection(this.email.getText(), this.Mdp.getText());
         if (data.next()) {
-            UtilisateurControlleur userControlleur = new UtilisateurControlleur(data.getInt(1),data.getString(2),data.getString(3),data.getString(4),data.getString(5));
+            Utilisateur userControlleur = new Utilisateur(data.getInt(1),data.getString(2),data.getString(3),data.getString(4),data.getString(5));
 
             StartApplication.changeScene("acceuil/AccueilView");
         }else {

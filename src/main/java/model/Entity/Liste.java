@@ -1,6 +1,6 @@
-package model;
+package model.Entity;
 
-public class ListeControlleur {
+public class Liste {
     private int idListe;
     private String nom;
 
